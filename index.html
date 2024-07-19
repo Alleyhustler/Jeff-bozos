@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BOZOS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(1);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            font-family: 'Bangers', cursive;
+            font-size: 3em;
+            border-bottom: 4px solid #ffffff;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #ffcc00;
+            transform: scale(1.1);
+        }
+
+        .content {
+            margin: 40px auto;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .image {
+            display: block;
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 1s ease-out;
+        }
+
+        .description {
+            margin: 20px auto;
+            font-size: 1.2em;
+            text-align: left;
+            color: #555;
+            line-height: 1.8;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+        }
+
+        hr {
+            border: none;
+            border-top: 3px solid #ffcc00;
+            width: 80%;
+            margin: 20px auto;
+        }
+        .scroll-top {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-top:hover {
+            background-color: #e6b800;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                font-size: 2em;
+            }
+
+            nav a {
+                font-size: 1em;
+            }
+
+            .description {
+                font-size: 30em;
+            }
+
+            .memes {
+                flex-direction: column;
+                align-items: center;
+                font-size: 1000em
+            }
+        }
+        .descriptionn {
+            max-width: 1000px; /* Maximum width of the text container */
+            width: 100%; /* Allow container to be responsive up to the max-width */
+            padding: 20px; /* Padding around the text */
+            margin: 20px auto; /* Center the text container and add some margin */
+                                    border-radius: 8px; /* Rounded corners */
+            font-family: Arial, sans-serif; /* Font family */
+            font-size: 40px; /* Font size */
+            line-height: 1.6; /* Line height for better readability */
+            color: #333; /* Text color */
+        }
+
+        .memes {
+            max-width: 1000px; /* Maximum width of the text container */
+            width: 100%; /* Allow container to be responsive up to the max-width */
+            padding: 20px; /* Padding around the text */
+            margin: 20px auto; /* Center the text container and add some margin */
+            background-color: #ffffff; /* Background color for the text container */
+            box-shadow: 0 2px 4px rgb(255, 255, 255); /* Optional: Shadow for a subtle effect */
+            font-family: 'Pacifico', cursive; /* Font family for title */
+            line-height: 1.6; /* Line height for better readability */
+            color: #333; /* Text color */
+            font-size: 48px; /* Larger font size for title */
+
+        }
+
+
+
+
+        <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and GIF Gallery</title>
+    <style>
+        /* Ensure the body and html take up the full height of the viewport */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Center the container within the viewport */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            background-color: #f0f0f0; /* Optional: Background color for better visibility */
+        }
+
+        /* Define the fixed width for the gallery container and center it */
+        .gallery-wrapper {
+            max-width: 1000px; /* Maximum width of the gallery container */
+            width: 100%; /* Allow container to be responsive up to the max-width */
+            padding: 10px; /* Optional: Padding around the gallery */
+            box-sizing: border-box; /* Include padding in the width calculation */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+            gap: 10px; /* Space between items */
+        }
+
+        .gallery-item {
+            grid-column: span 1; /* Default span 1 column */
+            overflow: hidden; /* Hide overflow content for smoother effects */
+        }
+
+        .gallery-item.full-width {
+            grid-column: span 3; /* Span all 3 columns */
+        }
+
+        .gallery-item img {
+            width: 100%; /* Ensure the image scales to fit within the grid item */
+            height: auto; /* Maintain aspect ratio */
+            border: 2px solid #ccc; /* Optional: Border around images */
+            border-radius: 8px; /* Optional: Rounded corners */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Smooth transitions */
+        }
+
+        /* Hover effects */
+        .gallery-item img:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            filter: brightness(1.1); /* Slightly increase brightness */
+        }
+        <html lang="en">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Links</title>
+    <style>
+        .socials {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Increased gap for larger images */
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .socials a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .socials img {
+            width: 60px; /* Adjust size as needed */
+            height: 60px; /* Adjust size as needed */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+        }
+        .socials img:hover {
+            transform: scale(1.1); /* Slight zoom effect on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>$BOZOS</h1>
+        <nav>
+            <a href="#home-section" class="active">HOME</a>
+            <a href="#memes-section">MEMES</a>
+            <a href="#socials-section">SOCIALS</a>
+        </nav>
+        <hr>
+    </header>
+    <div id="home-section" class="content">
+        <img src="images/Jeff bozos .jpg" alt="Main Image" class="image">
+        <div class="description">
+            <p>Jeff Bozos started Amazon as an online bookstore in his garage. Little did he know, it wouldn't grow into a giant that sells everything from books to banana slicers,IT FAILED BOZO. He also founded Blue Origin, because why not try to conquer space after failing online shopping? And let’s not forget, he bought The Washington Post, probably because he needed to hang himself on it!  
+                 $BOZOS #BOZOS</p>
+        </div>
+        <div class="descriptionn">
+            <p>$BOZOS</p>
+        </div>
+        <div id="memes-section" class="content">
+        <div class="memes">
+            <p>MEMES</p>
+
+    </div>
+    <button class="scroll-top" id="scroll-top" title="Scroll to Top">&#8679;</button>
+</style>
+</head>
+<body>
+    <section class="gallery">
+        <div class="gallery-item"><img src="images/meme (1).gif" alt="Image 1"></div>
+        <div class="gallery-item"><img src="images/Bezus Amazon.jpg" alt="Image 2"></div>
+        <div class="gallery-item"><img src="images/Crowd_Of_Kangs_Cheering_Meme_V2.gif" alt="Image 3"></div>
+        <div class="gallery-item"><img src="images/bozos usa.jpg" alt="Image 4"></div>
+        <div class="gallery-item"><img src="images/ddd_V3.gif" alt="Image 8"></div>
+        <div class="gallery-item"><img src="images/meme.gif" alt="Image 6"></div>
+        <div class="gallery-item"><img src="images/don't like.gif" alt="Image 7"></div>
+        <div class="gallery-item"><img src="images/bozos garage.jpg" alt="Image 5"></div>
+        <div class="gallery-item"><img src="images/image (35).jpg" alt="Image 9"></div>
+    </section>
+</body>
+</html>
+<div id="socials-section" class="content">
+</style>
+</head>
+<body>
+    <section class="socials">
+        <a href="https://t.me/pumpfun" target="_blank" title="Join us on Telegram">
+            <img src="images/telegram-icon-2048x2048-x902pktl.png" alt="Telegram">
+        </a>
+        <a href="https://twitter.com/pumpfun" target="_blank" title="Follow us on Twitter">
+            <img src="images/x-logo-twitter-elon-musk_dezeen_2364_col_0.webp" alt="Twitter">
+        </a>
+        <a href="https://dexscreener.com" target="_blank" title="Check out DexScreener">
+            <img src="images/unnamed.png" alt="DexScreener">
+        </a>
+        <a href="https://your-website.com" target="_blank" title="Visit Pump Fun Too">
+            <img src="images/pump fun logo.png" alt="Pump Fun Too">
+        </a>
+    </section>
+
+
+
+
+
+
+    <script>
+        // Scroll-to-Top Button
+        const scrollTopButton = document.getElementById('scroll-top');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopButton.style.display = 'block';
+            } else {
+                scrollTopButton.style.display = 'none';
+            }
+        };
+
+        scrollTopButton.addEventListener('click', function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Navigation Active Link Highlight
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
